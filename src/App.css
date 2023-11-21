@@ -1,0 +1,313 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* -----------MainHeader------------------------------- */
+#header{
+  width: 100%;
+  height: 60px;
+  background-color: rgba(40, 40, 56,1);
+}
+#logo{
+  height: 60px;
+}
+#logo>img{
+  height: 150px;
+  margin-top: -45px;
+}
+#search{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+#search>i{
+  color: rgb(155, 154, 154);
+  margin-right: -23px;
+  z-index: 1;
+  font-size: 18px;
+}
+#search>input{
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  padding-left: 30px;
+}
+#search>input::placeholder{
+  font-size: 15px;
+  color: rgb(155, 154, 154);
+}
+#place{
+  color: #fff;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#signin{
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu{
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* ---------------------Navbar---------------------------------------- */
+
+#navbar{
+  height: 50px;
+  width: 100%;
+  background-color: rgb(25, 25, 48);
+  color: #ffffffb7;
+  padding: 0px 20px 0 30px;
+}
+#navbar1_1{
+  height: 40px;
+  font-size: 14px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+#iplimg{
+  height: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+#navend{
+  display: flex;
+  justify-content: end;
+}
+#navbar1_2{
+  width: 100px;
+  height: 40px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+/* -------------Slides----------------------------- */
+
+.slideimage{
+  width: 100%; 
+  height: 50vh;
+  border-radius:10px;
+}
+#image{
+  height: 50vh;
+}
+#right{
+  height: 50vh;
+  display: flex;
+  align-items: center;
+}
+#left{
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.right{
+  width: 50px;
+  height: 50px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 50%;
+  font-size: 17px;
+  margin-left: -60px;
+  background-color: rgba(0, 0, 0, 0.432);
+} 
+
+.left{
+  width: 50px;
+  height: 50px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 50%;
+  font-size: 17px;
+  margin-right: -60px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.432);
+  
+}
+
+/* -------------------After Slider-------------------------- */
+
+.link{
+  text-decoration: none;
+} 
+.b1{
+  font-size: 35px;
+  font-weight: bold;
+  padding: 20px 40px;
+}
+.b2_1_1{
+  font-size: 20px;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+.b2_1_2{
+  text-decoration: none;
+  font-size: 18px;
+  padding-left: 10px;
+  color: rgba(0, 0, 0, 0.61);
+} 
+
+/* ---------------------SeateBooking----------------------------------- */
+.top{
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.589);
+  font-size: 13px;
+}
+.row1{
+  display: flex;
+}
+.col1{
+  width: 12px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(10, 165, 10);
+  padding: 12px;
+  margin: 5px;
+  border-radius: 3px;
+  color: rgb(10, 165, 10);
+  cursor: pointer;
+  font-size: 11px;
+}
+.col1:hover{
+  background-color: green;
+  color: aliceblue;
+
+}
+.col2{
+  width: 12px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gold;
+  background: linear-gradient(to bottom right,gold,transparent,gold),linear-gradient(to bottom left,gold,transparent,gold);
+  background-size: 100% 0.1px, 0.1px 100%;
+  padding: 12px;
+  margin: 5px;
+  border-radius: 3px;
+  color: gold;
+  cursor: pointer;
+  font-size: 11px;
+}
+.col2>span{
+  width: 12px;
+  height: 13px;
+  padding: 8px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+.col2:hover span,.col2:hover{
+  background-color: gold;
+  color: #fff;
+}
+.colspace{
+  width: 25px;
+  height: 20px;
+  padding: 5px 10px;
+  margin: 5.5px;
+}
+.alphabets{
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+}
+.screen{
+  background-color: black;
+  
+}
+.outscreen{
+  width: 30vw;
+  height: 85px;
+  clip-path: polygon(12% 78%, 89% 78%, 100% 100%, 0% 100%);
+  background-color:rgba(60, 194, 247, 0.37);
+}
+.inscreen{
+  width: 30vw;
+  height: 80px;
+  clip-path: polygon(12% 87%, 89% 87%, 95% 100%, 5% 100%);
+  background-color:rgba(225, 240, 253, 0.616);
+}
+.outerscreen{
+  width: 30vw;
+  height: 50px;
+  clip-path: polygon(0 0, 100% 0,98% 10%, 2% 10%);
+  background-color: rgba(144, 238, 144, 0.651);
+}
+.eyes{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: -30px 0 30px 0;
+}
+#payment{
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0 0 6px black;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+.payment{
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  background-color: rgb(248, 46, 46);
+  border-radius: 10px;
+  margin: 7px;
+  cursor: pointer;
+}
+
+/* ---------------------Teaters----------------- */
+
+.mvname{
+  height: 120px;
+  width: 100%;
+  background-color: rgba(32, 29, 48, 0.911);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  padding-left: 30px;
+}
+#second{
+  width: 100%;
+  height: 70px;
+  background-color:aqua;
+}
+.theater{
+  width: 100%;
+  height: 1000px;
+  background-color:black;
+}
+#theater_1{
+  width: 97%;
+  height: 200px;
+  background-color: aquamarine;
+  margin: 12px;
+}
