@@ -1,67 +1,32 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
-
+import { useSelector,useDispatch } from 'react-redux';
             
 function Bookmyshow() {
-  const moviedata=[
-    {
-      image:"../images/keedaa.png",
-      mvname:"Keedaa Cola",
-      mvtype:"Comedy/Crime",
-      backgroundimage:"../images/keedaabackgroundimage.png",
-      review:"28.5K",
-      date:"In cinemas",
-      duration:"2h • Comedy, Crime, • UA • 3 Nov, 2023"
-    },
-    {
-      image:"../images/vidhi.png",
-      mvname:"Vidhi",
-      mvtype:"Crime/Thriler",
-      backgroundimage:"../images/vidhibackgroundimage.png",
-      review:"16.1K",
-      date:"Releasing on 3 Nov, 2023",
-      duration:"1h 47m 1h 47m • Crime, Thriller • UA"
-    },
-    {
-      image:"../images/bagavanth_kesari.png",
-      mvname:"Bhagavanth Kesari",
-      mvtype:"Action/Drama",
-      backgroundimage:"../images/bagavanthkesaribackgroungimage.png",
-      review:"125.4K",
-      date:"In cinemas",
-      duration:"2h 44m • Action, Drama • UA • 19 Oct, 2023"
-    },
-    {
-      image:"../images/polimera2.png",
-      mvname:"Maa Oori Polimera 2",
-      mvtype:"Crime/Thriller",
-      backgroundimage:"../images/polimera2backgroundimage.png",
-      review:"30.9K",
-      date:"In cineams",
-      duration:"2h 7m • Crime, Thriller • A • 3 Nov, 2023"
-    },
-    {
-      image:"../images/leo.png",
-      mvname:"Leo",
-      mvtype:"Action/Thriller",
-      backgroundimage:"../images/leobackgroundimage.png",
-      review:"465.4K",
-      date:"In cineams",
-      duration:"2h 44m • Action, Thriller • UA • 19 Oct, 2023"
-    }
-  ]
-  const arrofimages=[
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1698646009192_hitexdesktop.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1696847878393_comiconhyddesktop.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1696330786937_mamadesktop.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1697187201758_islhyddesktop.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1698603955302_web.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1698931897748_mindfoolvirdasdesktop.jpg",
-  ]
+  const data=useSelector((state)=>{return state})
+
+  const dispatch=useDispatch();
+
+  const ListofMovies=useSelector(state=>{return state.SelectedListofMovies})
+  
+
+  const arrofimages=data.sliderdata;
+
   const [b,setB]=useState(0);
   setTimeout(()=>{
     if(b==arrofimages.length-1){setB(0)}else{setB(b+1)}
   },5000);
+
+  const [recmv,setRecmv]=useState(0);
+  const recmvstyle={
+    transform: (recmv==1)? "translateX(-91.5vw)":(recmv==2)?"translateX(-146.5vw)":"translate(0px)"
+  }
+  const recmvhideleftbutton={
+    visibility:(recmv==0)?"hidden":"visible"
+  }
+  const recmvhiderightbutton={
+    display:(recmv==1)?"none":"block"
+  }
   return (
     <div>
         <div className='row' style={{height:"50vh",marginTop:"20px",width:"100vw"}}>
@@ -75,27 +40,55 @@ function Bookmyshow() {
                 <button className='right' onClick={()=>{if(b==arrofimages.length-1){setB(0)}else{setB(b+1)}}}>&#10095;</button>
             </div>
         </div>
+        
 
         <div className='b1'>
-          <h1>Recommended Movies</h1>
+          <strong>Recommended Movies</strong>
         </div>
-        <div className='b2' style={{display:"flex",paddingLeft:"50px"}}>
-          
-          {moviedata.map(item=>{
-            return(
-                <Link className='link' to={`/Amovie?backgroundimage=${item.backgroundimage}&image=${item.image}&mvname=${item.mvname}&review=${item.review}&date=${item.date}&duration=${item.duration}`}>
-                    <div className='b2_1' style={{padding:"10px"}}>
-                        <img src={item.image} width={230} height={380} style={{borderRadius:"10px"}}/>
-                        <div className='b2_1_1'>
-                        {item.mvname}
+        <div className='recmv' style={{height:"500px",display:"flex"}}>
+          <div className='recmv_1'>
+            <button className='recmvleft' style={recmvhideleftbutton} onClick={()=>{setRecmv(recmv-1)}}>&#10094;</button>
+          </div>
+          <div className='recmv_2'>
+            <div className='b2' style={recmvstyle}> 
+              {ListofMovies.map(item=>{
+                return(
+                    <Link className='link' to={`/Amovie`}>
+                        <div className='b2_1' style={{padding:"10px"}} onClick={()=>{dispatch({type:"setMvname",payload:item.mvname});dispatch({type:"SelectedMovieData",payload:item})}}>
+                            <img src={item.image} width={230} height={380} style={{borderRadius:"10px"}}/>
+                            <div className='b2_1_1'>
+                            {item.mvname}
+                            </div>
+                            <div className='b2_1_2'>
+                            {item.mvtype.map((val,i)=>{
+                              if(i!=(item.mvtype.length-1)){
+                                return <span>{val} </span>
+                              }
+                              else{
+                                return <span>{val}</span>
+                              }
+                            })}
+                            </div>
                         </div>
-                        <div className='b2_1_2'>
-                        {item.mvtype}
-                        </div>
-                    </div>
-                </Link>
-            );
-          })} 
+                    </Link>
+                );
+              })} 
+            </div>
+          </div>
+          <div className='recmv_3'>
+            <button className='recmvright' style={recmvhiderightbutton} onClick={()=>{setRecmv(recmv+1)}}>&#10095;</button>
+          </div>
+        </div>
+        <div>
+          <img src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png" width={1230} style={{margin:"60px"}} />
+        </div>
+
+        <div className='outerSlider'>
+          <div className='innerSlider'>
+            {
+              arrofimages.map((item)=><img className='imageSlide' src={item} />)
+            }
+          </div>
         </div>
     </div>
   )

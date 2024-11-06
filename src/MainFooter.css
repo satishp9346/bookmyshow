@@ -1,0 +1,115 @@
+.wholeFooter{
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .r1{
+    width: 100%;
+    height: 85px;
+    background-color: rgb(47, 46, 46);
+    display: flex;
+  }
+  .r1_c1{
+    width: 80%;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+  }
+  .r1_c1>img{
+    width: 120px;
+    height: 120px;
+    padding: 0 15px 0 70px;
+  }
+  .r1_c1>h4{
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+  }
+  .r1_c1>h5{
+    font-size: 17px;
+    padding: 10px 0 0 15px;
+  }
+  .r1_c2{
+    width: 300px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .r1_c2>button{
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    background-color: rgb(233, 94, 133);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .r2{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    background-color: rgb(65, 65, 65);
+    color: lightgrey;
+  }
+  .r2_c1,.r2_c2,.r2_c3{
+    width: 33.3%;
+    height: 120px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 11px;
+  }
+  
+  .r3{
+    width: 100%;
+    padding: 20px 55px;
+    background-color: rgb(51, 51, 57);
+    color: rgb(159, 156, 156);
+  }
+  .r3_c1>h5{
+    font-size: 12px;
+  }
+  .r3_c2{
+    font-size: 12px;
+    color: rgb(133, 131, 131);
+    padding: 10px 0 20px 0;
+  }
+  .r3_c2>span:hover{
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .r4{
+    width: 100%;
+    padding: 50px 30px;
+    display: flex;
+    background-color: rgb(51, 51, 57);
+    color: rgb(159, 156, 156);
+  }
+  .r4_c2{
+    padding:0 20px ;
+  }
+  .r4_c1,.r4_c3{
+    width: 45%;
+    height: 0px;
+    margin-top: 15px;
+    border-top: 1px solid rgb(113, 112, 112);
+  }
+  .r5{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(51, 51, 57);
+    text-align: center;
+  }
+  .r6{
+    width: 100%;
+    background-color: rgb(51, 51, 57);
+    text-align: center;
+    color: rgb(113, 112, 112);
+    font-size: 12px;
+    line-height: 5px;
+    padding-bottom: 40px;
+  }

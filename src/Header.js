@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import './Header.css'
+import { useDispatch, useSelector } from 'react-redux';
 function Header(props) {
+    const storeData=useSelector((state)=>{return state})
+    const SelectedTheaterData=useSelector(state=>{return state.SelectedTheaterData});
+    const SelectedMovieData=useSelector(state=>{return state.SelectedMovieData});
+
     const history=useNavigate();
+    const dispatch=useDispatch()
     const [a,setA]=useState(true);
     const [b,setB]=useState(1);
     const [x,setX]=useState(2);
-    // const [head,setHead]=useState(true);
     const getStyle=(data)=>{
         if(data==x){
             return {backgroundColor:"rgb(252, 37, 55)",color:"#fff"}
@@ -16,6 +21,7 @@ function Header(props) {
         }
     }
     props.data(x);
+      
     const popup={
         display:a?"block":"none"
     }
@@ -30,16 +36,16 @@ function Header(props) {
     <div className='container-fluid' id='header-container-fluid'>
         <div className='row'>
             <div className='col-md-9'>
-                <div className='one' onClick={()=>{history('/Theaters')}} >&#10094;</div>
+                <div className='one' onClick={()=>{history('/Theaters');dispatch({type:"displayheader",payload:true})}} >&#10094;</div>
                 <div className='two'>
-                    <h5>Tiger 3 <span style={{border:"1px solid #fff",borderRadius:"50%",padding:"2px",fontSize:"10px"}}>UA</span></h5>
-                    <strong>Platinum Movie Cinemas: Ameerpet | Today, 15 Nov, 10:00 PM</strong>
+                    <h5>{SelectedMovieData.mvname} <span style={{border:"1px solid #fff",borderRadius:"50%",padding:"3px",fontSize:"8px"}}>{SelectedMovieData.certificate}</span></h5>
+                    <strong>{SelectedTheaterData.TheaterName} | {storeData.fixDay}, {storeData.fixDate} {storeData.fixMonth}, {storeData.SelectedTiming}</strong>
                 </div>
             </div>
             <div className='col-md-2' id='three'>
                 <div className='three' style={{cursor:"pointer"}} onClick={()=>{setA(true);}} >{x} Tickets <i class="fa fa-pencil" style={{fontSize:"13px",padding:"0px 0 0 10px"}}></i></div>
             </div>
-            <div className='col-md-1' id='four' onClick={()=>{history('/Theaters')}} >
+            <div className='col-md-1' id='four' onClick={()=>{history('/Theaters');dispatch({type:"displayheader",payload:true})}} >
                 &#10005;
             </div>
         </div>
@@ -68,12 +74,19 @@ function Header(props) {
                             <div className='col-md-1'></div>   
                         </div>
                       </div>
+                      <div style={{display:"flex"}}>
                       <div className='popup_4'>
-                        <p style={{color:"rgba(0,0,0,0.589)"}}>SILVER CLASS</p>
-                        <h5>Rs. 295.00</h5>
+                        <p style={{color:"rgba(0,0,0,0.589)"}}>SEMI RECLINER</p>
+                        <h5>Rs. 300.00</h5>
                         <p style={{color:"green"}}>Available</p>
                       </div>
-                      <div className='btn btn-primary' id='btn' onClick={()=>{setA(false)}}>Select Seates</div>
+                      <div className='popup_4'>
+                        <p style={{color:"rgba(0,0,0,0.589)"}}>SILVER CLASS</p>
+                        <h5>Rs. 245.00</h5>
+                        <p style={{color:"green"}}>Available</p>
+                      </div>
+                      </div>
+                      <div className='btn btn-primary' id='btn' onClick={()=>{setA(false);dispatch({type:"SeateCount",payload:x})}}>Select Seates</div>
                   </div>
                   <div className='col-md-4'></div>
               </div>
